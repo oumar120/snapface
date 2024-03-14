@@ -1,0 +1,29 @@
+
+<div class="d-flex justify-content-center">
+    <button mat-button (click)="onBack()"> <mat-icon fontIcon="arrow_back"></mat-icon> back</button>
+    <mat-card class="col-4 m-4 " [ngClass]="{'bg-body-tertiary ':textButton==='oups un snap'}">
+        <mat-card-header>
+            <mat-card-title> {{faceSnap.titre | uppercase}} </mat-card-title>
+            <mat-card-subtitle>Mise en ligne {{faceSnap.date | date:"le dd MMMM YYYY à HH:mm"}} </mat-card-subtitle>
+        </mat-card-header>
+       <img mat-card-image [src]="faceSnap.url">
+       <mat-card-content>
+        <p class="pt-2 ">
+            {{faceSnap.description}}
+        </p>
+        <p>
+           photo prise a {{faceSnap.location}}
+        </p>
+       </mat-card-content>
+       <mat-card-actions>
+        <button mat-button (click)="onAddSnap()"> {{textButton}} 
+            <mat-icon fontIcon="thumb_up" *ngIf="textButton==='oh snap'"></mat-icon>
+            <mat-icon fontIcon="thumb_down" *ngIf="textButton==='oups un snap'"></mat-icon>
+        </button>
+        <span class="badge" [ngStyle]="{color:'rgb(0,'+faceSnap.snap+',0)'}"> {{faceSnap.snap}} </span>
+       </mat-card-actions>
+    </mat-card>  
+</div>
+
+
+
